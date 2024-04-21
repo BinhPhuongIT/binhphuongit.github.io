@@ -65,9 +65,9 @@
 	color: $theme-text-color-primary;
 }
 
-.resume-summary-desc {
-	font-size: 0.875rem;
-}
+// .resume-summary-desc {
+// 	font-size: 0.875rem;
+// }
 
 .resume-contact {
 	border-top: 1px solid rgba(256, 256, 256, 0.2);
@@ -132,6 +132,8 @@
 	li {
 		margin-bottom: 0.5rem;
 	}
+	font-size: 0.3rem;
+    color: #f00404;
 }
 
 .resume-degree {
