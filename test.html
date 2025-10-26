@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lê Bình Phương - DevOps/Security CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Màu nền nhạt hơn */
+        }
+        .resume-section-heading {
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .resume-section-heading i {
+            margin-right: 0.75rem;
+            color: #3b82f6;
+        }
+        .resume-skill-badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f4f8;
+        }
+        .resume-skill-badge i {
+            margin-right: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+        }
+        .progress-bar {
+            background-color: #60a5fa;
+        }
+        .resume-timeline-item-header {
+            margin-bottom: 0.5rem;
+        }
+        .resume-position-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+        .resume-company-name {
+            font-size: 1rem;
+            color: #4b5563;
+        }
+        .resume-position-time {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .resume-timeline-item-desc {
+            font-size: 1rem;
+            color: #374151;
+            line-height: 1.75;
+        }
+        .resume-contact-list a {
+            color: #3b82f6;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .resume-contact-list a:hover {
+            color: #2563eb;
+        }
+        .resume-contact-icon {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+            color: #3b82f6;
+        }
+        .resume-profile-pic {
+            border-width: 3px;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .social-list a {
+            color: #4b5563;
+            hover: #3b82f6;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.25rem;
+        }
+        .social-list a:hover {
+             color: #3b82f6;
+        }
+        .top-bar {
+            background-color: #f9fafb;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .top-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar-cta {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: none;
+            font-size: 1rem;
+        }
+        .top-bar-cta:hover {
+            background-color: #2563eb;
+        }
+        .resume-wrapper {
+            background-color: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .resume-header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .resume-profile-holder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .resume-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .resume-role-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        .resume-contact {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #6b7280;
+        }
+        .resume-contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .resume-body {
+            padding: 2rem;
+        }
+        .col-main {
+            padding-right: 2rem;
+        }
+        .col-side {
+            padding-left: 2rem;
+        }
+        .resume-section {
+            margin-bottom: 2rem;
+        }
+         .resume-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .resume-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0.75rem;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        .resume-timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .resume-timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            border: 3px solid #f9fafb;
+        }
+        .resume-position-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .resume-timeline-list {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+        .resume-timeline-list li::before {
+            content: '•';
+            color: #3b82f6;
+            margin-right: 0.5rem;
+        }
+        .resume-timeline-list li{
+             margin-bottom: 0.5rem;
+        }
+        .item-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .item-icon {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+            color: #3b82f6;
+        }
+        .item-desc {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .resume-degree {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+        .resume-degree-org {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 0.25rem;
+        }
+        .resume-degree-time {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .resume-lang-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        .resume-level-indicator {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0.25rem;
+        }
+        .resume-level-indicator .item {
+            flex: 1;
+            height: 0.5rem;
+            border-radius: 0.25rem;
+            background-color: #e5e7eb;
+        }
+        .resume-level-indicator .item-full {
+            background-color: #3b82f6;
+        }
+        .resume-level-indicator .item-half {
+            background: linear-gradient(to right, #3b82f6 50%, #e5e7eb 50%);
+        }
+         .footer {
+            background-color: #f9fafb;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .copyright {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .theme-link {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+        .theme-link:hover {
+            color: #2563eb;
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .col-main, .col-side {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .resume-header {
+                padding: 1.5rem;
+            }
+            .resume-name {
+                font-size: 2.25rem;
+            }
+            .resume-role-title {
+                font-size: 1.125rem;
+            }
+            .resume-contact-list {
+                gap: 1rem;
+            }
+            .top-bar-cta {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+            .social-list a {
+                font-size: 1rem;
+            }
+            .resume-section {
+                 margin-bottom: 1.5rem;
+            }
+            .resume-timeline-item {
+                margin-bottom: 1rem;
+            }
+            .resume-position-time, .resume-company-name {
+                font-size: 0.8rem;
+            }
+            .resume-position-title{
+                 font-size: 1.125rem;
+            }
+            .resume-timeline::before {
+                left: 0.5rem;
+            }
+            .resume-timeline-item::before {
+                 left: 0;
+            }
+            .resume-contact-list {
+                flex-direction: column;
+            }
+            .resume-contact-list li {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .top-bar-inner {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        @media (max-width: 576px) {
+            .resume-name {
+                font-size: 2rem;
+            }
+            .resume-role-title {
+                font-size: 1rem;
+            }
+            .resume-header {
+                padding: 1rem;
+            }
+            .resume-body {
+                padding: 1.5rem;
+            }
+            .resume-section-heading {
+                font-size: 1.25rem;
+            }
+             .resume-position-title {
+                font-size: 1rem;
+            }
+             .resume-timeline-item-desc{
+                font-size: 0.95rem;
+             }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container-fluid">
+        <div class="main-content-wrapper">
+            <div class="top-bar text-center">
+                <div class="top-bar-inner">
+                    <a class="btn top-bar-cta" href="mailto:info@binhphuong.io.vn">Liên Hệ</a>
+                    <ul class="social-list list-inline">
+                        <li class="list-inline-item"><a href="https://twitter.com/phuong_lbinh" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/lebinhphuong" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        <li class="list-inline-item"><a href="https://facebook.com/mathimotmi" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="resume-wrapper mx-auto">
+                <div class="resume-header">
+                    <div class="resume-profile-holder">
+                        <img class="resume-profile-pic rounded-circle" src="assets/images/profile.png" alt="Lê Bình Phương">
+                        <h2 class="resume-name">Lê Bình Phương</h2>
+                        <div class="resume-role-title">SysDevOps Lead</div>
+                    </div>
+                    <div class="resume-contact">
+                        <ul class="resume-contact-list list-unstyled">
+                            <li><a href="tel:+84132456789"><i class="resume-contact-icon bi bi-telephone-inbound"></i> +84-559 522 667</a></li>
+                            <li><a href="mailto:info@binhphuong.io.vn"><i class="resume-contact-icon bi bi-envelope"></i> info@binhphuong.io.vn | binhphuong.pcsr@gmail.com</a></li>
+                            <li><a href="https://cv.binhphuong.io.vn"><i class="resume-contact-icon bi bi-globe"></i> binhphuong.io.vn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="resume-body">
+                    <div class="row">
+                        <div class="col-main col-12 col-lg-8">
+                            <section class="resume-summary-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-person"></i>Về Tôi</h3>
+                                <div class="resume-summary-desc">
+                                    Chuyên gia CNTT dày dặn kinh nghiệm với hơn 9 năm kinh nghiệm trong các lĩnh vực Cơ sở hạ tầng CNTT, Quản trị hệ thống và DevOps, hiện đang dẫn đầu với vai trò SysDevOps Lead, thúc đẩy các sáng kiến chiến lược và tiến bộ công nghệ.
+                                </div>
+                            </section>
+                            <section class="resume-experience-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-briefcase"></i>Kinh Nghiệm Làm Việc</h3>
+                                <div class="resume-timeline">
+                                    <article class="resume-timeline-item">
+                                        <div class="resume-timeline-item-header">
+                                            <div class="resume-position-meta">
+                                                <div class="resume-position-time">2017 - Hiện tại</div>
+                                                <div class="resume-company-name">7-Eleven | TP. Hồ Chí Minh</div>
+                                            </div>
+                                            <h3 class="resume-position-title">SysDevOps Lead</h3>
+                                        </div>
+                                        <div class="resume-timeline-item-desc">
+                                            <ul class="resume-timeline-list">
+                                                <li>Tối ưu hóa chi phí cơ sở hạ tầng đám mây thông qua phân bổ nguồn lực hiệu quả và các giải pháp tiết kiệm chi phí, đạt được mức giảm 50% chi phí cơ sở hạ tầng.</li>
+                                                <li>Điều phối các hệ thống microservice quy mô lớn trên Kubernetes, nâng cao khả năng mở rộng, khả năng phục hồi, hiệu suất và độ tin cậy.</li>
+                                                <li>Điều phối cơ sở hạ tầng quan trọng quy mô lớn bao gồm hơn 200 nút worker, hơn 50 microservice, hơn 600 pod, hơn 30 máy chủ cơ sở dữ liệu, hơn 120 cơ sở dữ liệu tenant, đạt được thời gian hoạt động 99,9% cho các hoạt động có tính khả dụng cao.</li>
+                                                <li>Triển khai các biện pháp bảo mật mạnh mẽ, bao gồm tường lửa, kiến trúc zero-trust, hệ thống phát hiện xâm nhập (IDS) và giám sát toàn diện, bảo vệ các hệ thống và dữ liệu quan trọng.</li>
+                                                <li>Triển khai các hệ thống tự động hóa mạnh mẽ để hợp lý hóa quy trình triển khai ứng dụng, tối ưu hóa quy trình làm việc và giảm thiểu sự can thiệp thủ công.</li>
+                                                <li>Triển khai các hệ thống khôi phục thảm họa nghiêm ngặt và mạnh mẽ với RPO thời gian thực, RTO 15 phút và chi phí trang DR 20%, đảm bảo tính khả dụng cao, tính liên tục của doanh nghiệp và giảm thiểu thời gian ngừng hoạt động trong trường hợp khẩn cấp.</li>
+                                                <li>Chỉ đạo lộ trình phát triển và các sáng kiến phát triển kỹ năng cho nhóm DevOps, cung cấp hướng dẫn chiến lược để điều chỉnh các mục tiêu của nhóm với các mục tiêu của tổ chức.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="resume-timeline-item-desc">
+                                            <h3 class="resume-position-title">Trưởng nhóm Cơ sở hạ tầng CNTT</h3>
+                                            <ul class="resume-timeline-list">
+                                                 <li>Với vai trò Trưởng nhóm Cơ sở hạ tầng CNTT, dẫn đầu việc phát triển, triển khai và quản lý các hệ thống quan trọng bao gồm Active Directory (AD), DNS, máy chủ Tệp, Sao lưu, Email, Giám sát, VPN và cơ sở hạ tầng Camera. Điều phối việc triển khai và giám sát các hệ thống mạng trên các Trung tâm dữ liệu, Văn phòng và Cửa hàng. Liên tục xác định các cơ hội tối ưu hóa quy trình, thúc đẩy các sáng kiến tự động hóa để nâng cao hiệu quả và năng suất. Tự động hóa các quy trình thiết lập cho máy tính và hệ thống điểm bán hàng (POS), hợp lý hóa các hoạt động. Triển khai và quản lý các hệ thống quản lý tài sản, đảm bảo theo dõi và sử dụng tài nguyên hiệu quả.</li>
+                                                <li>Khai thác Google Cloud Platform để phát triển các hệ thống nội bộ, thể hiện sự thông thạo về các công nghệ đám mây. Cộng tác với các nhà cung cấp để mua sắm, bảo trì và hỗ trợ các thành phần cơ sở hạ tầng CNTT, thúc đẩy quan hệ đối tác bền chặt. Cung cấp đào tạo và hướng dẫn toàn diện cho các thành viên trong nhóm về các công nghệ, quy trình và thực tiễn tốt nhất mới nổi, nuôi dưỡng sự phát triển kỹ năng và tăng cường khả năng của nhóm.</li>
+                                                <li>Phối hợp liên chức năng với các bộ phận khác nhau để đẩy nhanh việc thiết lập và vận hành cửa hàng, đảm bảo quy trình làm việc hiệu quả và hoàn thành dự án kịp thời. Thể hiện khả năng lãnh đạo mạnh mẽ, lập kế hoạch chiến lược và khả năng thực hiện, thúc đẩy những tiến bộ công nghệ đồng thời phù hợp với các mục tiêu của tổ chức.</li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <article class="resume-timeline-item">
+                                        <div class="resume-timeline-item-header">
+                                            <div class="resume-position-meta">
+                                                <div class="resume-position-time">2018 - 2019</div>
+                                                <div class="resume-company-name">ODS JSC | TP. Hồ Chí Minh</div>
+                                            </div>
+                                            <h3 class="resume-position-title">Kỹ sư VoIP</h3>
+                                        </div>
+                                        <div class="resume-timeline-item-desc">
+                                            <ul class="resume-timeline-list">
+                                                <li>Với vai trò là Kỹ sư VoIP, kiến trúc, triển khai và tích hợp các hệ thống lõi PBX mạnh mẽ với nhiều nhà cung cấp mạng khác nhau bao gồm FPT, Viettel, Mobifone, Vinaphone và các nhà cung cấp khác, đảm bảo khả năng tương thích và độ tin cậy của hệ thống liền mạch. Dẫn đầu hoạt động ổn định và cung cấp hệ thống VoIP hiệu suất cao cho hơn 500 khách hàng, bao gồm quản lý hệ thống toàn diện và giám sát chủ động.</li>
+                                                <li>Phối hợp chặt chẽ với các nhóm đa chức năng như phát triển phần mềm, hỗ trợ kỹ thuật và các bộ phận kinh doanh để thúc đẩy các giải pháp hiệu quả và đáp ứng nhất quán các nhu cầu ngày càng tăng của khách hàng. Khai thác chuyên môn về các công nghệ VoIP, giao thức mạng và tích hợp hệ thống để cung cấp các giải pháp truyền thông thoại mạnh mẽ và có khả năng mở rộng, phù hợp với các mục tiêu của tổ chức và các thực tiễn tốt nhất trong ngành.</li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <article class="resume-timeline-item">
+                                        <div class="resume-timeline-item-header">
+                                            <div class="resume-position-meta">
+                                                <div class="resume-position-time">2015 - 2018</div>
+                                                <div class="resume-company-name">Vingroup | TP. Hồ Chí Minh</div>
+                                            </div>
+                                            <h3 class="resume-position-title">Điều phối viên CNTT</h3>
+                                        </div>
+                                        <div class="resume-timeline-item-desc">
+                                            <ul class="resume-timeline-list">
+                                                 <li>Với vai trò là Điều phối viên CNTT, dẫn đầu việc thiết lập liền mạch các địa điểm cửa hàng mới, đảm bảo tất cả các thành phần và hệ thống cơ sở hạ tầng CNTT được cài đặt, cấu hình và vận hành tỉ mỉ. Quản lý thành thạo việc triển khai và cấu hình các thiết lập mạng cho các địa điểm cửa hàng mới, bao gồm bộ định tuyến, bộ chuyển mạch và điểm truy cập, cho phép kết nối và liên lạc liền mạch.</li>
+                                                <li>Đảm nhận vai trò quan trọng trong việc quản trị và duy trì các dịch vụ Active Directory (AD) và DNS quan trọng, đảm bảo xác thực người dùng mạnh mẽ, ủy quyền và phân giải tên miền trên toàn tổ chức. Cung cấp hỗ trợ kỹ thuật kịp thời và hiệu quả cho nhân viên cửa hàng, khắc phục sự cố và giải quyết các vấn đề liên quan đến CNTT một cách kịp thời, giảm thiểu gián đoạn hoạt động.</li>
+                                                <li>Khai thác khả năng kỹ thuật vững chắc và các kỹ năng giải quyết vấn đề để chủ động xác định và giải quyết các thách thức tiềm ẩn, tối ưu hóa các hoạt động CNTT và đảm bảo tính liên tục của doanh nghiệp. Thể hiện khả năng giao tiếp và cộng tác xuất sắc, thúc đẩy các mối quan hệ продуктивные với các nhóm và các bên liên quan đa chức năng.</li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-side col-12 col-lg-4">
+                            <section class="resume-skills-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-gear"></i>Kỹ Năng Chuyên Môn</h3>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">Kubernetes</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng Kubernetes" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 98%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">Docker</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng Docker" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 95%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">Kafka</div>
+                                         <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng Kafka" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 92%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">EFK vs PLG</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng EFK vs PLG" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 92%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">GIT</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng GIT" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 86%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">Nginx</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng Nginx" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 86%"></div>
+                                        </div>
+                                    </li>
+                                     <li class="mb-2">
+                                        <div class="resume-skill-name">Jira</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng Jira" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 86%"></div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <div class="resume-skill-name">AWS/GCP</div>
+                                        <div class="progress resume-progress" role="progressbar" aria-label="Kỹ năng AWS/GCP" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar resume-progress-bar" style="width: 86%"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="resume-skills-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-person-gear"></i>Kỹ Năng Mềm</h3>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><span class="badge resume-skill-badge"><i class="bi bi-star-fill"></i> Lãnh đạo</span></li>
+                                    <li class="list-inline-item"><span class="badge resume-skill-badge"><i class="bi bi-pencil-fill"></i> Lập kế hoạch và Chiến lược</span></li>
+                                    <li class="list-inline-item"><span class="badge resume-skill-badge"><i class="bi bi-search"></i> Phân tích và Giải quyết vấn đề</span></li>
+                                    <li class="list-inline-item"><span class="badge resume-skill-badge"><i class="bi bi-chat-dots-fill"></i> Giao tiếp</span></li>
+                                </ul>
+                            </section>
+                            <section class="resume-projects-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-code-slash"></i>Kỹ Năng</h3>
+                                 <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Ngôn Ngữ</a></h4>
+                                    <div class="item-desc">
+                                        Python, Go, Javascript, Shell, PowerShell, DiaPlan.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Cơ Sở Hạ Tầng Dưới Dạng Mã</a></h4>
+                                    <div class="item-desc">
+                                        Terraform, Ansible, CloudFormation, Vagrant.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">GitOps</a></h4>
+                                    <div class="item-desc">
+                                        Jenkins, ArgoCD, GitHub actions, AWS CodePipelines.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Cơ Sở Hạ Tầng Đám Mây</a></h4>
+                                    <div class="item-desc">
+                                        Amazon AWS, Google GCP, VNG Cloud, FPT Cloud, OpenStack, VMWare.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Mạng</a></h4>
+                                    <div class="item-desc">
+                                      Bộ định tuyến, Tường lửa, Phân tích gói tin, Socket, IPv4/v6, DNS, VPN, Cisco.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Bảo Mật</a></h4>
+                                    <div class="item-desc">
+                                        WAF, Nhóm Bảo mật, NACL, Iptable, UFW, IDS, IPS, DDoS.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Giám Sát và Ghi Nhật Ký</a></h4>
+                                    <div class="item-desc">
+                                      Prometheus, Elasticsearch/Logstash/Kibana, Promtail/Loki/Grafana, Nagios, Newrelic.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Containers</a></h4>
+                                    <div class="item-desc">
+                                      Docker, Kubernetes.
+                                    </div>
+                                </div>
+                                 <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Cơ Sở Dữ Liệu</a></h4>
+                                    <div class="item-desc">
+                                      PostgreSQL, MySQL, Mongo, SAP, Clickhouse, Sao chép, Sao lưu và Phục hồi, Tối ưu hóa & Chuẩn hóa.
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4 class="item-heading"><i class="item-icon bi bi-square-fill"></i><a href="#">Hệ Điều Hành</a></h4>
+                                    <div class="item-desc">
+                                      Linux/Unix, Windows, MacOS.
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="resume-educate-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-book"></i>Học Vấn</h3>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">
+                                        <div class="resume-degree">Cử nhân Công nghệ Thông tin</div>
+                                        <div class="resume-degree-org">Đại học Công nghiệp Thực phẩm TP. Hồ Chí Minh</div>
+                                        <div class="resume-degree-time">2011 - 2015</div>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="resume-lang-section resume-section">
+                                <h3 class="resume-section-heading"><i class="bi bi-translate"></i>Ngôn Ngữ</h3>
+                                <ul class="list-unstyled resume-lang-list">
+                                    <li class="mb-2">
+                                        <div class="resume-lang-name">Tiếng Anh</div>
+                                        <div class="resume-level-indicator">
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-full"></div>
+                                            <div class="item item-half"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <small class="copyright">Cảm ơn bạn đã dành thời gian xem CV này | Thiết kế bởi <a class="theme-link" href="https://binhphuong.io.vn" target="_blank">Lê Bình Phương</a></small>
+    </footer>
+</body>
+</html>
